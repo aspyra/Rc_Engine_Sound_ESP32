@@ -1,11 +1,11 @@
 #include <Arduino.h>
 
 // Select (remove //) the remote configuration profile you have:
-#define FLYSKY_FS_I6X // <------- Flysky FS-i6x
+// #define FLYSKY_FS_I6X // <------- Flysky FS-i6x
 // #define FLYSKY_FS_I6S_EXCAVATOR // <------- Flysky FS-i6s for KABOLITE K336 hydraulic excavator (use IBUS communication setting)
 // #define FLYSKY_GT5              // <------- Flysky GT5 / Reely GT6 EVO / Absima CR6P
 // #define RGT_EX86100             // <------- MT-305 remote delivered with RGT EX86100 crawler (use PWM communication setting)
-// #define GRAUPNER_MZ_12          // <------- Graupner MZ-12 PRO
+#define GRAUPNER_MZ_12          // <------- Graupner MZ-12 PRO
 // #define MICRO_RC                // <------- The car style DIY "Micro RC" remote. Don't use this with standard remotes!
 // #define MICRO_RC_STICK          // <------- The stick based DIY "Micro RC" remote. Don't use this with standard remotes!
 
@@ -26,11 +26,11 @@
 // #define SBUS_COMMUNICATION // control signals are coming in via the SBUS interface (comment it out for classic PWM RC signals)
 // NOTE: "boolean sbusInverted = true / false" was moved to the remote configuration profiles, so you don't have to change it
 uint32_t sbusBaud = 100000;         // Standard is 100000. Try to lower it, if your channels are coming in unstable. Working range is about 96000 - 104000.
-#define EMBEDDED_SBUS               // Embedded SBUS code is used instead of SBUS library, if defined (recommended)
+//#define EMBEDDED_SBUS               // Embedded SBUS code is used instead of SBUS library, if defined (recommended)
 uint16_t sbusFailsafeTimeout = 100; // Failsafe is triggered after this timeout in milliseconds (about 100)
 
 // IBUS communication (RX header, 13 channels not recommended, NO FAILSAFE, if bad contact in iBUS wiring!) --------
-#define IBUS_COMMUNICATION // control signals are coming in via the IBUS interface (comment it out for classic PWM RC signals)
+//#define IBUS_COMMUNICATION // control signals are coming in via the IBUS interface (comment it out for classic PWM RC signals)
 
 // SUMD communication (RX header, 12 channels, For Graupner remotes) --------
 // #define SUMD_COMMUNICATION // control signals are coming in via the SUMD interface (comment it out for classic PWM RC signals)
@@ -66,8 +66,8 @@ uint16_t sbusFailsafeTimeout = 100; // Failsafe is triggered after this timeout 
   const uint16_t pulseSpan = 480; // in theory 500 (1500 center position +/-500 = 1000 - 2000ms) usually about 480
 
   // Automatic or manual modes -----
-  //#define AUTO_LIGHTS // Lights controlled by engine state or controller CH5
-  //#define AUTO_ENGINE_ON_OFF // Engine switching on / off automatically via throttle stick and timer or manually by controller CH5
+  #define AUTO_LIGHTS // Lights controlled by engine state or controller CH5
+  #define AUTO_ENGINE_ON_OFF // Engine switching on / off automatically via throttle stick and timer or manually by controller CH5
   //#define AUTO_INDICATORS // Indicators triggered automatically by steering angle or manually by controller CH6
 */
 

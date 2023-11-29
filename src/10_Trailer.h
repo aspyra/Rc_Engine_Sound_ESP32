@@ -25,7 +25,7 @@
 // Note: these options can be changed, using the wireless configuration via 192.168.4.1
 
 // Trailer 1
-bool defaultUseTrailer1 = true; // Use Trailer 1 or not
+bool defaultUseTrailer1 = false; // Use Trailer 1 or not
 uint8_t defaultBroadcastAddress1[] = {0xFE, 0x49, 0x01, 0x00, 0x00, 0x01}; // Generic
 
 // Trailer 2

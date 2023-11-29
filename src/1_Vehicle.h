@@ -15,7 +15,7 @@
 // #include "vehicles/KenworthW900ACAT3408new.h" // Kenworth W900A with Caterpillar 3408 V8 Diesel (good bass speaker required)
 // #include "vehicles/KenworthCummins335.h" // 1950ies Kenworth with Cummins 335 R6 Diesel
 // #include "vehicles/MackSuperLiner.h" // MACK Super Liner
-// #include "vehicles/M35.h"// AM General M35 "deuce and a half" military truck, turbocharged R6 universal fuel engine
+#include "vehicles/M35.h"// AM General M35 "deuce and a half" military truck, turbocharged R6 universal fuel engine
 // #include "vehicles/US_Firetruck.h"// US firetruck with CAT3408 V8 and Allison 6 speed automatic (horn & siren loop capable)
 // #include "vehicles/FreightlinerCummins350.h" // Freightliner Cabover with Cummins 350 R6 Diesel
 
@@ -36,7 +36,7 @@
 // #include "vehicles/ManKat.h" // MAN KAT V8 Diesel German Bundeswehr military truck
 // #include "vehicles/MagirusDeutz256.h" // Magirus Deutz 256 air coolded V8 Diesel truck
 // #include "vehicles/MagirusMercur125.h" // Magirus Mercur air coolded V6 Diesel truck
-#include "vehicles/Saurer2DM.h" // Swiss Saurer 2DM R6 Diesel truck
+//#include "vehicles/Saurer2DM.h" // Swiss Saurer 2DM R6 Diesel truck
 
 // Russian trucks --------
 // #include "vehicles/Ural4320.h" // URAL 4320 6x6 V8 Diesel military truck
