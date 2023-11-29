@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "RC_Engine_Sound_ESP32-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/RC_Engine_Sound_ESP32-eagle-import.kicad_sym")(options "")(descr ""))
+  (lib (name "RC_Engine_Sound_ESP32-custom")(type "KiCad")(uri "${KIPRJMOD}/RC_Engine_Sound_ESP32-custom.kicad_sym")(options "")(descr ""))
+)
