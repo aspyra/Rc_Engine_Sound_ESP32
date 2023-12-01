@@ -79,7 +79,7 @@ char codeVersion[] = "9.12.0"; // Software revision.
 #if defined NEOPIXEL_ENABLED
 #include <FastLED.h> // https://github.com/FastLED/FastLED        <<------- required for Neopixel support. Use V3.3.3
 #endif
-#include <ESP32AnalogRead.h> // https://github.com/madhephaestus/ESP32AnalogRead <<------- required for battery voltage measurement
+//#include <ESP32AnalogRead.h> // https://github.com/madhephaestus/ESP32AnalogRead <<------- required for battery voltage measurement
 #include <Tone32.h>          // https://github.com/lbernstone/Tone32      <<------- required for battery cell detection beeps // Not for platform = espressif32@4.3.0
 
 // Additional headers (included)
@@ -258,7 +258,7 @@ CRGB rgbLEDs[NEOPIXEL_COUNT];
 #endif
 
 // Battery voltage
-ESP32AnalogRead battery;
+//ESP32AnalogRead battery;
 
 // Webserver on port 80
 WiFiServer server(80);
@@ -1759,7 +1759,8 @@ void setup()
   Serial.begin(115200, SERIAL_8N1, DEBUG_RX, DEBUG_TX); // USB serial (for DEBUG) Mode, Rx pin (99 = not used), Tx pin
 
   // ADC setup
-  battery.attach(BATTERY_DETECT_PIN);
+  //battery.attach(BATTERY_DETECT_PIN);
+  adcAttachPin(BATTERY_DETECT_PIN);
 
   // Print some system and software info to serial monitor
   delay(1000); // Give serial port/connection some time to get ready
@@ -1940,7 +1941,7 @@ void setup()
       NULL,      // parameter of the task
       1,         // priority of the task (1 = low, 3 = medium, 5 = highest)
       &Task1,    // Task handle to keep track of created task
-      0);        // pin task to core 0
+      1);        // pin task to core 0
 
   // Interrupt timer for variable sample rate playback
   variableTimer = timerBegin(0, 20, true);                           // timer 0, MWDT clock period = 12.5 ns * TIMGn_Tx_WDT_CLK_PRESCALE -> 12.5 ns * 20 -> 250 ns = 0.25 us, countUp
@@ -4453,7 +4454,7 @@ float batteryVolts()
   { // Init array, if first measurement (important for call in setup)!
     for (uint8_t i = 0; i <= 5; i++)
     {
-      raw[i] = battery.readVoltage();
+      raw[i] = analogRead(BATTERY_DETECT_PIN)/1241.21;//battery.readVoltage();
     }
     initDone = true;
   }
@@ -4464,7 +4465,7 @@ float batteryVolts()
   raw[2] = raw[1];
   raw[1] = raw[0];
 
-  raw[0] = battery.readVoltage(); // read analog input
+  raw[0] = analogRead(BATTERY_DETECT_PIN)/1241.21;//battery.readVoltage(); // read analog input
 
   float voltage = (raw[0] + raw[1] + raw[2] + raw[3] + raw[4] + raw[5]) / 6 * VOLTAGE_CALIBRATION;
   return voltage;
